@@ -1,0 +1,22 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  padding: 16px 0 16px 0;
+}
+
+.Header p {
+  text-align: right;
+  margin: 0;
+}
+
+.Header .Account {
+  display: flex;
+  align-items: center;
+}
+
+.Header .App-logo {
+  height: 64px;
+  /* pointer-events: none; */
+}
