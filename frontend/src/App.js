@@ -1,34 +1,23 @@
 import { useState } from "react";
-import "./App.css";
-import Header from "./Header/Header";
 import { Button, Container, Divider } from "@mui/material";
+
+import "./App.css";
+
+import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 
-function App() {
-  const [indexOfJoke, setIndexOfJoke] = useState(0);
+import { useCookies } from "react-cookie";
 
-  var jokes = [
-    {
-      joke: 'A child asked his father, "How were people born?" So his father said, "Adam and Eve made babies, then their babies became adults and made babies, and so on." The child then went to his mother, asked her the same question and she told him, "We were monkeys then we evolved to become like we are now." The child ran back to his father and said, "You lied to me!" His father replied, "No, your mom was talking about her side of the family."',
-      vote: 0,
-    },
-    {
-      joke: 'Teacher: "Kids,what does the chicken give you?" Student: "Meat!" Teacher: "Very good! Now what does the pig give you?" Student: "Bacon!" Teacher: "Great! And what does the fat cow give you?" Student: "Homework!"',
-      vote: 0,
-    },
-    {
-      joke: 'The teacher asked Jimmy, "Why is your cat at school today Jimmy?" Jimmy replied crying, "Because I heard my daddy tell my mommy, \'I am going to eat that pussy once Jimmy leaves for school today!\'"',
-      vote: 0,
-    },
-    {
-      joke: 'A housewife, an accountant and a lawyer were asked "How much is 2+2?" The housewife replies: "Four!". The accountant says: "I think it\'s either 3 or 4. Let me run those figures through my spreadsheet one more time." The lawyer pulls the drapes, dims the lights and asks in a hushed voice, "How much do you want it to be?"',
-      vote: 0,
-    },
-  ];
+function App() {
+  const [cookies, setCookie] = useCookies(["index"]);
+  const [indexOfJoke, setIndexOfJoke] = useState(cookies.index || 0);
+
+  let data = require("./Database/jokes.json");
 
   const nextJoke = (n) => {
-    if (indexOfJoke === jokes.length) return;
-    jokes[indexOfJoke].vote = n;
+    if (indexOfJoke === data.length) return;
+    setCookie("index", indexOfJoke + 1);
+    data[indexOfJoke].vote = n;
     setIndexOfJoke(indexOfJoke + 1);
   };
 
@@ -69,8 +58,8 @@ function App() {
               flexGrow: "2",
             }}
           >
-            {indexOfJoke !== jokes.length
-              ? jokes[indexOfJoke].joke
+            {indexOfJoke !== data.length
+              ? data[indexOfJoke].joke
               : "That's all the jokes for today! Come back another day!"}
           </p>
           <div
@@ -83,10 +72,10 @@ function App() {
           >
             <Button
               variant="contained"
-              disabled={indexOfJoke === jokes.length ? true : false}
+              disabled={indexOfJoke === data.length ? true : false}
               style={{
                 backgroundColor:
-                  indexOfJoke !== jokes.length ? "#2C7EDB" : "#E0E0E0",
+                  indexOfJoke !== data.length ? "#2C7EDB" : "#E0E0E0",
                 padding: "12px 72px 12px 72px",
                 borderRadius: "0",
                 marginRight: "32px",
@@ -98,10 +87,10 @@ function App() {
             </Button>
             <Button
               variant="contained"
-              disabled={indexOfJoke === jokes.length ? true : false}
+              disabled={indexOfJoke === data.length ? true : false}
               style={{
                 backgroundColor:
-                  indexOfJoke !== jokes.length ? "#29B363" : "#E0E0E0",
+                  indexOfJoke !== data.length ? "#29B363" : "#E0E0E0",
                 padding: "12px 72px 12px 72px",
                 borderRadius: "0",
                 textTransform: "none",
