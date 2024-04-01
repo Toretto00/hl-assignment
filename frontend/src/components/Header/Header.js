@@ -4,7 +4,7 @@ import "./Header.css";
 function Header() {
   return (
     <div className="Header">
-      <img src="HL-logo.jpg" alt="logo" className="App-logo" />
+      <img src="./HL-logo.jpg" alt="logo" className="App-logo" />
       <div className="Account">
         <div>
           <p
@@ -19,7 +19,7 @@ function Header() {
         </div>
         <Avatar
           alt="Jim HLS"
-          src="ava.png"
+          src="./ava.png"
           style={{ marginLeft: "8px", height: "60px", width: "60px" }}
         />
       </div>
