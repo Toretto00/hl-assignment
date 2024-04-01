@@ -3,13 +3,13 @@ import { Image, StyleSheet, Text, View } from "react-native";
 export default function Header() {
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/HL-logo.jpg")} style={styles.image} />
+      <Image source={require("../../assets/HL-logo.jpg")} style={styles.image} />
       <View style={styles.account}>
         <View style={styles.name}>
           <Text style={[styles.italic, styles.rightText]}>Handicrafted by</Text>
           <Text style={[styles.bold, styles.rightText]}>Jim HLS</Text>
         </View>
-        <Image source={require("../assets/ava.png")} style={styles.image} />
+        <Image source={require("../../assets/ava.png")} style={styles.image} />
       </View>
     </View>
   );

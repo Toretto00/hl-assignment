@@ -53,8 +53,8 @@ function Home() {
             style={{
               textAlign: "left",
               alignContent: "center",
-              margin: "0 16px 0 16px",
-              height: "160px",
+              margin: "0 32px 0 16px",
+              // height: "160px",
               flexGrow: "2",
             }}
           >
@@ -64,9 +64,11 @@ function Home() {
           </p>
           <div
             style={{
-              margin: "32px 0 0 0",
+              display: "flex",
+              margin: "32px 0 32px 0",
               borderTop: "1px solid #ECECEC",
               paddingTop: "32px",
+              justifyContent: "center",
               flexGrow: "1",
             }}
           >
