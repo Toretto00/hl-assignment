@@ -18,9 +18,23 @@ function miniMaxSum(arr) {
 
 function main() {
   const prompt = require("prompt-sync")({ sigint: true });
-  var input = prompt("Input 5 numbers: ");
-  let arr = input.trim().split(" ");
-  miniMaxSum(arr);
+
+  var input = prompt("Enter 5 numbers separated by spaces: ");
+
+  let arr = input.trim().split(" ").map(Number);
+
+  if (
+    arr.length === 5 &&
+    arr.every((num) => Number.isInteger(num) && num > 0)
+  ) {
+    miniMaxSum(arr);
+  } else {
+    console.log(
+      "Invalid input format. Please enter five positive space-separated integers."
+    );
+    main();
+  }
+
   return;
 }
 
