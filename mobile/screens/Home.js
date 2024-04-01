@@ -7,10 +7,6 @@ import * as SecureStore from "expo-secure-store";
 export default function Home() {
   const [indexOfJoke, setIndexOfJoke] = useState(0);
 
-  //   const [cookie, setCookie] = useState(-1);
-  //   const [storedCookie, setStoredCookie] = useState(-1);
-
-  // Function to save the cookie
   const saveCookie = async () => {
     try {
       await SecureStore.setItemAsync("cookie", (indexOfJoke + 1).toString());
@@ -20,7 +16,6 @@ export default function Home() {
     }
   };
 
-  // Function to retrieve the saved cookie
   const loadCookie = async () => {
     try {
       const storedCookie = await SecureStore.getItemAsync("cookie");
@@ -36,7 +31,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // SecureStore.deleteItemAsync("cookie");
     loadCookie();
   }, []);
 
